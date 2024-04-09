@@ -12,8 +12,10 @@ axios.get(`https://randomuser.me/api/?results=${cantPacientes}`).then((data) => 
         uuid: uuidv4().slice(0,6),
         timestamp: moment().format('MMMM Do YYYY, h:mm:ss a')
     }));
+    // agrupamos por gender
     const grupoGenero = _.groupBy(pacientes, 'gender');
 
+    // iteramos por genero
     _.forEach(grupoGenero, (usuarios, genero) => {
         if(genero == 'male'){
             var gen = "Masculino";
@@ -22,7 +24,7 @@ axios.get(`https://randomuser.me/api/?results=${cantPacientes}`).then((data) => 
             var gen = "Femenino";
         }
         console.log(`Usuarios de género ${gen}:`);
-        // Iterar sobre los usuarios dentro de cada grupo
+        // Iterar sobre los usuarios de cada grupo
         _.forEach(usuarios, (usuario, i) => {
             console.log(chalk.blue.bgWhite(`${i + 1}. Nombre: ${usuario.name.first} - Apellido: ${usuario.name.last} - Género: ${usuario.gender} - uuid: ${usuario.uuid} - Timestamp: ${usuario.timestamp}`));
         });
