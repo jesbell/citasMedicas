@@ -38,7 +38,7 @@ Lista de software y herramientas, incluyendo versiones, que necesitas para insta
 Para utilizar este proyecto debes clonar este repositorio en tu máquina, utilizando git.
 
 ```
-git clone git@github.com:jesbell/welcomeWorld_.git
+git clone git@github.com:jesbell/citasMedicas.git
 ```
 
 Una vez allí puedes abrir el proyecto donde te sea más comodo. Pero dentro de la carpeta del proyecto deberas realizar las instalación de las dependencias, con el siguiente comando.
@@ -59,7 +59,7 @@ Se visualizara en consola y en localhost, la lista de usuarios.
 
 ## Soporte
 
-Si tienes algún problema o sugerencia, por favor abre un problema [aquí](https://github.com/jesbell/welcomeWorld_/issues).
+Si tienes algún problema o sugerencia, por favor abre un problema [aquí](https://github.com/jesbell/citasMedicas/issues).
 
 ## Versionado  📌
 
