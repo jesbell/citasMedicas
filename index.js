@@ -9,7 +9,6 @@ const app = express();
 
 const cantPacientes = 10;
 
-
 // Función para imprimir en consola, con letra azul y fondo blanco
 const verenConsola = (grupoGenero) => {
     console.log(chalk.blue.bold.bgWhite("Lista de pacientes"))
@@ -20,6 +19,23 @@ const verenConsola = (grupoGenero) => {
             console.log(chalk.blue.bgWhite(`${i + 1}. Nombre: ${usuario.name.first} - Apellido: ${usuario.name.last} - Género: ${usuario.gender} - uuid: ${usuario.uuid} - Timestamp: ${usuario.timestamp}`));
         });
     });
+};
+
+// función para generar el html para mostrar en en localhost
+const generaHTML = (grupoGenero) => {
+    let html = '<h1>Lista de Pacientes</h1>';
+    
+    _.forEach(grupoGenero, (usuarios, genero) => {
+        html += `<h2>${genero == 'male' ? 'Masculino' : 'Femenino'}:</h2>`;
+        html += '<ul>';
+        // Iterar sobre los usuarios de cada grupo
+        _.forEach(usuarios, (usuario, i) => {
+            html += `<li>${i+1}. Nombre: ${usuario.name.first} - Apellido: ${usuario.name.last} - Género: ${usuario.gender} - uuid: ${usuario.uuid} - Timestamp: ${usuario.timestamp}</li>`;
+        });
+        html += '</ul>';
+    });
+
+    return html;
 };
 
 app.get("/", (req, res) => {
@@ -35,7 +51,7 @@ app.get("/", (req, res) => {
 
         verenConsola(grupoGenero);
 
-        res.json(grupoGenero);
+        res.send(generaHTML(grupoGenero));
     });
 });
 
