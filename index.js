@@ -20,7 +20,7 @@ const verenConsola = (grupoGenero) => {
         console.log(`${genero == 'male' ? 'Masculino' : 'Femenino'}:`);
         // Iterar sobre los usuarios de cada grupo
         _.forEach(usuarios, (usuario, i) => {
-            console.log(chalk.blue.bgWhite(`${i + 1}. Nombre: ${usuario.name.first} - Apellido: ${usuario.name.last} - Género: ${usuario.gender} - uuid: ${usuario.uuid} - Timestamp: ${usuario.timestamp}`));
+            console.log(chalk.blue.bgWhite(`${i + 1}. Nombre: ${usuario.name.first} - Apellido: ${usuario.name.last} - uuid: ${usuario.uuid} - Timestamp: ${usuario.timestamp}`));
         });
     });
 };
@@ -32,7 +32,7 @@ const generaHTML = (grupoGenero) => {
         html += `<h2>${genero == 'male' ? 'Masculino' : 'Femenino'}:</h2>`;
         html += '<ul>';
         _.forEach(usuarios, (usuario, i) => {
-            html += `<li>${i+1}. Nombre: ${usuario.name.first} - Apellido: ${usuario.name.last} - Género: ${usuario.gender} - uuid: ${usuario.uuid} - Timestamp: ${usuario.timestamp}</li>`;
+            html += `<li>${i+1}. Nombre: ${usuario.name.first} - Apellido: ${usuario.name.last} - uuid: ${usuario.uuid} - Timestamp: ${usuario.timestamp}</li>`;
         });
         html += '</ul>';
     });
