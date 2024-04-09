@@ -1,5 +1,4 @@
 
-// Librerías
 import chalk from "chalk"; // Dar formato a los mensajes en la consola
 import { v4 as uuidv4 } from "uuid"; //generar UUID
 import moment from "moment"; // manejar fechas y horas
@@ -43,7 +42,8 @@ const generaHTML = (grupoGenero) => {
 app.get("/", (req, res) => {
     
     // Realiza una solicitud HTTP a randomuser para obtener pacientes
-    axios.get(`https://randomuser.me/api/?results=${cantPacientes}`).then((data) => {
+    axios.get(`https://randomuser.me/api/?results=${cantPacientes}`)
+    .then((data) => {
         // Procesando datos obtenidos por la API
         const pacientes = data.data.results.map(paciente => ({
                     ...paciente,
@@ -57,7 +57,10 @@ app.get("/", (req, res) => {
         verenConsola(grupoGenero);
         // Se genera un html para enviarlo como respuesta
         res.send(generaHTML(grupoGenero));
-    });
+    })
+    .catch((e) => {
+        console.log(e);
+    }); 
 });
 
 // Creando servidor con express en puerto 3000
