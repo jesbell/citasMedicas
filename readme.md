@@ -28,7 +28,7 @@ Lista de software y herramientas, incluyendo versiones, que necesitas para insta
 - Express
 - Chalk
 - uuid
-- Momento
+- Moment
 - load
 - axios
 - nodemon
